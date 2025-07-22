@@ -44,7 +44,6 @@ const state = reactive({
 defineProps({
   limit: {
     type: Number,
-    default: 6
   },
   showButton: {
     type: Boolean,
@@ -55,7 +54,7 @@ defineProps({
 // http://localhost:8000/jobs
 onMounted(async () => {
   try {
-    axios.default.get('http://localhost:8000/jobs')
+    axios.default.get('/api/jobs')
         .then(response => {
           console.log('Jobs fetched:', response.data);
           state.jobs = response.data;
